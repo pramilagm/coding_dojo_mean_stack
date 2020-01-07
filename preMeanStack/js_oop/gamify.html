@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+    var tigger = {
+        character: "Tigger",
+        honey: false,
+        greet: function () {
+            console.log("The wonderful thing about Tiggers is Tiggers are wonderful things!");
+        }
+    };
+
+
+    var pooh = {
+        character: "Winnie the Pooh",
+        greet: function () {
+            console.log("This is a nice place to stay in winter");
+        }
+    };
+    var piglet = {
+        character: "Piglet",
+        greet: function () {
+            console.log("what a great house");
+        }
+    };
+    var rabbit = {
+        character: "Rabbit",
+        greet: function () {
+            console.log("this is the home of small cute rabbit");
+        }
+    };
+    var gopher = {
+        character: "Gopher",
+        greet: function () {
+            console.log("Gopher is on the way");
+        }
+    };
+    var robin = {
+        character: "Christopher Robin",
+        greet: function () {
+            console.log("hello there");
+        }
+    };
+    var kanga = {
+        character: "Kanga",
+        greet: function () {
+            console.log("hello");
+        }
+    };
+    var eeyore = {
+        character: "Eeyore",
+        greet: function () {
+            console.log("The wonderful thing ");
+        }
+    };
+    var heff = {
+        character: "Heffalumps",
+        pickUp: function () {
+            console.log("");
+        }
+    };
+    var bees = {
+        character: "Bees",
+        pickUp: function () {
+            honey = true;
+            console.log("You are now at bees house");
+        }
+
+    };
+    var owl = {
+        character: "Owl",
+        greet: function () {
+            console.log("hello owl");
+        }
+    };
+    tigger.north = pooh; // add more attributes, where we are actually storing the memory location for the other object
+    pooh.south = tigger;
+    pooh.west = piglet;
+    piglet.east = pooh;
+    piglet.north = owl;
+    piglet.north.east = robin;
+    robin.north = kanga;
+    kanga.north = eeyore;
+    eeyore.east = heff;
+    pooh.east = bees;
+    bees.west = pooh;
+    bees.north = rabbit;
+    bees.north.west = robin;
+    rabbit.south = bees;
+    bees.north.east = gopher;
+    gopher.west = rabbit;
+    gopher.west.west = robin;
+
+    pooh.north = robin;
+    robin.north = kanga;
+
+
+    var player = {
+
+        location: tigger,
+        honey: false,
+        move: function (direction) {
+            if (this.location[direction]) {
+                this.location = this.location[direction];
+                console.log("You are in the " + this.location.character + "'s house");
+            } else {
+                console.log("you may not go that way");
+            }
+
+        },
+        randomItem: null,
+        mission: function () {
+            var destination = [tigger, pooh, piglet, rabbit, robin, heff, kanga, gopher, eeyore];
+            randomItem = destination[Math.floor(Math.random() * destination.length)];
+            console.log(randomItem.character + "needs the honey can you help ???");
+        },
+        pickUp: function () {
+
+            if (this.location == bees) {
+
+                honey = true;
+                console.log("you picked up the honey");
+
+
+
+            } else {
+                console.log("this location dont have a honey")
+            }
+
+
+        },
+        drop: function () {
+            if (this.location == randomItem) {
+                if (this.honey == true) {
+                    console.log("congratulations you deliverd the honey");
+                    this.honey = false;
+                } else {
+                    console.log("Please pick up the honey first");
+                }
+            } else {
+                console.log("this is not the destination")
+            }
+        }
+
+    };
+</script>
+
+<body>
+
+</body>
+
+</html>

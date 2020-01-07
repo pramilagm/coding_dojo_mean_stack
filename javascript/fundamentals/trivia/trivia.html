@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trivia</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+</head>
+<script>
+      
+    $(document).ready(function(){
+        $("input").click(function () {
+
+        // the given link is for Bulbasaur's information
+        $.get("https://opentdb.com/api.php?amount=10&type=multiple", traviaQuestion)
+        
+    // Notice that displayName is a function that takes in 1 parameter (this is the data that comes back from the API)
+        function traviaQuestion(data) {
+            var travia ="";
+            for (i in data.results){
+                console.log(data.results);
+                travia +=  "<p> " + data.results[i].question + "</p>";
+                travia += "<select>"
+                     
+                travia += "<option>" + data.results[i].correct_answer + "</option>";
+                for(j in data.results[i].incorrect_answers){
+                    travia += "<option>" + data.results[i].incorrect_answers[j] +"</option>";
+                }
+                travia += "</select>" 
+                
+                $("#correct").toggle("slow");
+            }
+            $(".display").html("<div>" +travia + "</div>");
+            $(".display").css({"color":"red","font-size":"120%" ,"margin-left":"80px"});
+          
+            }
+        });
+        $("option").click(function(){
+            $.get("https://opentdb.com/api.php?amount=10&type=multiple", traviaAnswer)
+            function traviaAnswer(data){
+                var result ="";
+                var count = 0;
+                if(!data.results.correct_answer){
+                    result = "you are wrong choose again";
+                    count +=0;
+
+                }
+                else{
+                    count +=1;
+                    result = "you are right your score is now " +count ;
+        
+                }     
+            }
+            $(".answer").html("<div>" +result+ "</div>");
+
+
+
+
+        });
+
+
+    });
+
+</script>
+    <body>
+        <div class="container">
+            <p>Click here to see the question</p>
+            <input type="submit" value="submit" class ="btn btn-danger">
+        </div>
+        <div class="display"></div>
+        <div class ="answer"></div>
+    </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+    var tigger = {
+        character: "Tigger"
+    };
+    var pooh = {
+        character: "Winnie the Pooh"
+    };
+    var piglet = {
+        character: "Piglet"
+    };
+    var rabbit = {
+        character: "Rabbit"
+    };
+    var gopher = {
+        character: "Gopher"
+    };
+    var robin = {
+        character: "Christopher Robin"
+    };
+    var kanga = {
+        character: "Kanga"
+    };
+    var eeyore = {
+        character: "Eeyore"
+    };
+    var heff = {
+        character: "Heffalumps"
+    };
+    var bees = {
+        character: "Bees"
+    };
+    var owl = {
+        character: "Owl"
+    };
+    tigger.north = pooh; // add more attributes, where we are actually storing the memory location for the other object
+    pooh.south = tigger;
+    pooh.west = piglet;
+    piglet.east = pooh;
+    piglet.north = owl;
+    piglet.north.east = robin;
+    robin.north = kanga;
+    kanga.north = eeyore;
+    eeyore.east = heff;
+    pooh.east = bees;
+    bees.west = pooh;
+    bees.north = rabbit;
+    bees.north.west = robin;
+    rabbit.south = bees;
+    bees.north.east = gopher;
+    gopher.west = rabbit;
+    gopher.west.west = robin;
+
+    pooh.north = robin;
+    robin.north = kanga;
+
+
+    var player = {
+        location: tigger,
+        move: function (direction) {
+            if (this.location[direction]) {
+                this.location = this.location[direction];
+                console.log("You are in the " + this.location.character + "'s house");
+            } else {
+                console.log("you may not go that way");
+            }
+
+        },
+
+    };
+</script>
+
+<body>
+
+</body>
+
+</html>
