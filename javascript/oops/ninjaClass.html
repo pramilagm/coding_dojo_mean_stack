@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+    function Ninja(name) {
+        this.name = name;
+        var health = 100;
+        var speed = 3;
+        var strength = 3;
+        this.sayName = function () {
+            console.log(" My name is " + this.name);
+        }
+        // 'Getter' function help us read private variable
+        this.readHealth = function () {
+            return health;
+        }
+        this.readSpeed = function () {
+            return speed;
+
+        }
+        this.readStrength = function () {
+            return strength;
+        }
+        this.showStats = function () {
+            console.log("Name : " + this.name + ", Health :" + this.readHealth() + ", Speed :" + this.readSpeed() +
+                ", Strength :" + this.readStrength());
+
+        }
+        this.drinkSake = function () {
+            health += 10;
+            return health;
+        }
+
+
+
+
+
+    }
+    var ninja1 = new Ninja("Pramila");
+    ninja1.sayName();
+
+    console.log(ninja1.drinkSake());
+    ninja1.showStats();
+</script>
+
+<body>
+
+</body>
+
+</html>

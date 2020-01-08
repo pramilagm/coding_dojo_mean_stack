@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+    function Ninja(name) {
+        this.name = name;
+        var health = 100;
+        var speed = 3;
+        var strength = 3;
+        this.sayName = function () {
+            console.log(" My name is " + this.name);
+        }
+        // 'Getter' function help us read private variable
+        this.readHealth = function () {
+            return health;
+        }
+        this.readSpeed = function () {
+            return speed;
+
+        }
+        this.readStrength = function () {
+            return strength;
+        }
+        this.showStats = function () {
+            console.log("Name : " + this.name + ", Health :" + this.readHealth() + ", Speed :" + this.readSpeed() +
+                ", Strength :" + this.readStrength());
+
+        }
+        this.drinkSake = function () {
+            health += 10;
+            return health;
+        }
+        this.punch = function (ninja) {
+            if (ninja instanceof Ninja) {
+                health -= 5;
+                console.log(ninja.name + " is punched by " + this.name + " lost  5 health");
+            } else {
+                console.log(ninja.name + "is not an instance of Ninja ");
+            }
+
+        }
+        this.kick = function (ninja) {
+            if (ninja instanceof Ninja) {
+                health -= 15;
+                console.log(ninja.name + " is kicked by " + this.name + " and lost 15 kg ");
+            } else {
+                console.log(ninja.name + " is not an instance of Ninja ");
+            }
+        }
+    }
+
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+        this.findInfo = function () {
+            console.log("I am " + this.name + "and " + this.age)
+        }
+    }
+    var person = new Person("Shirish", 28);
+    var blueNinja = new Ninja("Goemon");
+    var redNinja = new Ninja("Bill Gates");
+    redNinja.punch(blueNinja);
+    console.log(redNinja.readHealth());
+    blueNinja.kick(person);
+    blueNinja.kick(redNinja);
+    blueNinja.kick(redNinja);
+    console.log(blueNinja.readHealth());
+</script>
+
+<body>
+
+</body>
+
+</html>
