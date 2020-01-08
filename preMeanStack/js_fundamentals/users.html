@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+    users = [{
+            fname: "Kermit",
+            lname: "the Frog",
+            languages: ["Python", "JavaScript", "C#", "HTML", "CSS", "SQL"],
+            interests: {
+                music: ["guitar", "flute"],
+                dance: ["tap", "salsa"],
+                television: ["Black Mirror", "Stranger Things"]
+            }
+        },
+        {
+            fname: "Winnie",
+            lname: "the Pooh",
+            languages: ["Python", "Swift", "Java"],
+            interests: {
+                food: ["honey", "honeycomb"],
+                flowers: ["honeysuckle"],
+                mysteries: ["Heffalumps"]
+            }
+        },
+        {
+            fname: "Arthur",
+            lname: "Dent",
+            languages: ["JavaScript", "HTML", "Go"],
+            interests: {
+                space: ["stars", "planets", "improbability"],
+                home: ["tea", "yellow bulldozers"]
+            }
+        }
+    ]
+    // Kermit the Frog knows Python, JavaScript, C#, HTML, CSS, and SQL. 
+    // Winnie the Pooh knows Python, Swift, and Java. 
+    // Arthur Dent knows JavaScript, HTML, and Go
+    for (var user of users) {
+        console.log(`${user.fname} ${user.lname} "knows" ${user.languages}`);
+        var inte = "";
+        for (var interest in user.interests) {
+
+            for (var sub of user.interests[interest]) {
+                inte += sub + " ";
+
+            }
+        }
+        console.log(`${user.fname} ${user.lname} " likes " ${inte} `)
+
+
+    }
+    // for-of is used for iterating over the  value & for-in for key
+</script>
+
+<body>
+    <h1 class="hello"></h1>
+    <h1 class="zack">hello there</h1>
+</body>
+
+</html>
