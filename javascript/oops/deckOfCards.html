@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+    class Card {
+
+        constructor(suit, rank, numeric) {
+            this.suit = suit;
+            this.rank = rank;
+            this.numeric = numeric;
+        }
+        cardInfo() {
+            console.log(`${this.rank} of  ${this.suit} is : ${this.numeric}`);
+        }
+    }
+    const suits = ['♠', '♡', '♢', '♣'];
+    const ranks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+    class Deck {
+        constructor() {
+            this.cards = [];
+            this.reset();
+        }
+
+        shuffle() {
+            for (var i = 0; i < 1000; i++) {
+                var location1 = Math.floor((Math.random() * this.cards.length));
+                var location2 = Math.floor((Math.random() * this.cards.length));
+                var tmp = this.cards[location1];
+
+                this.cards[location1] = this.cards[location2];
+                this.cards[location2] = tmp;
+            }
+            return this.cards;
+        }
+        reset() {
+            this.cards = [];
+            for (let suit of suits) {
+                for (let rank in ranks) {
+                    this.cards.push(new Card(suit, ranks[rank], 1 + (rank * 1)));
+                }
+            }
+        }
+        deal() {
+            return this.cards.pop();
+        }
+    }
+
+    class Player {
+
+        constructor(name) {
+            this.name = name;
+            this.hand = [];
+        }
+        add(deck) {
+            this.hand.push(deck.deal());
+            return this;
+
+        }
+        discard() {
+            return this.hand.pop();
+        }
+
+
+    }
+    var deck = new Deck();
+    var player1 = new Player("Pramila");
+    console.log(player1.add(deck));
+    // console.log(player1.discard());
+
+    deck.shuffle();
+    console.log(deck.deal());
+    for (let card of deck.cards) {
+        card.cardInfo();
+
+    }
+    // deck.reset();
+</script>
+
+<body>
+
+</body>
+
+</html>
