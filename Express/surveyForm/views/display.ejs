@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Submitted Information</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<div class="container">
+    <h2>Submitted Information </h2>
+    <table class="table table-striped table-dark">
+
+        <thead class="thead">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Location</th>
+                <th scope="col">Language</th>
+                <th scope="col">Comment</th>
+            </tr>
+
+            <body>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="col"><%= name %></th>
+                <th scope="col"><%= loc %></th>
+                <th scope="col"><%= lang %></th>
+                <th scope="col"><%= comment %></th>
+            </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-primary" data-toggle="collapse" href="/" role="button" aria-expanded="false"
+        aria-controls="multiCollapseExample1">Get Back</a>
+
+</div>
+
+
+</body>
+
+</html>
