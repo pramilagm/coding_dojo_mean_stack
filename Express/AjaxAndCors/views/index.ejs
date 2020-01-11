@@ -1,0 +1,25 @@
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script>
+    $(document).ready(function () {
+        $('#peopleBtn').click(function (e) {
+            e.preventDefault();
+            // let's make the request to our OWN server!
+            $.get('/people', function (data) {
+                $('.name').append(`${data.count}`)
+                console.log("got the data", data);
+            }, 'json');
+        });
+    });
+</script>
+
+<body>
+    <h1>Hello, is it me you were looking for?</h1>
+
+    <form>   
+        <button id="peopleBtn">People</button>
+    </form>
+    <div class="name"></div>
+</body>
+
+</html>

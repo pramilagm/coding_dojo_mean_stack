@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,57 +9,95 @@
 </head>
 <script>
     console.log("pramila");
-    let students = [
-    {name: 'Remy', cohort: 'Jan'},
-    {name: 'Genevieve', cohort: 'March'},
-    {name: 'Chuck', cohort: 'Jan'},
-    {name: 'Osmund', cohort: 'June'},
-    {name: 'Nikki', cohort: 'June'},
-    {name: 'Boris', cohort: 'June'}
-];
-function arr_dic(arr){
+    let students = [{
+            name: 'Remy',
+            cohort: 'Jan'
+        },
+        {
+            name: 'Genevieve',
+            cohort: 'March'
+        },
+        {
+            name: 'Chuck',
+            cohort: 'Jan'
+        },
+        {
+            name: 'Osmund',
+            cohort: 'June'
+        },
+        {
+            name: 'Nikki',
+            cohort: 'June'
+        },
+        {
+            name: 'Boris',
+            cohort: 'June'
+        }
+    ];
 
-    for(var i=0; i<students.length;i++){
-        // console.log(students[i])
-        for(key in students[i]){
-            console.log(students[i].key)
-            console.log("Name : " +students[i].name + " , Cohort :" +  students[i].cohort)
+    function arr_dic(arr) {
 
+        for (var i = 0; i < students.length; i++) {
+            // console.log(students[i])
+            for (key in students[i]) {
+                console.log(students[i].key)
+                console.log("Name : " + students[i].name + " , Cohort :" + students[i].cohort)
+
+            }
         }
     }
-}
-arr_dic(students);
-let users = {
-    employees: [
-        {'first_name':  'Miguel', 'last_name' : 'Jones'},
-        {'first_name' : 'Ernie', 'last_name' : 'Bertson'},
-        {'first_name' : 'Nora', 'last_name' : 'Lu'},
-        {'first_name' : 'Sally', 'last_name' : 'Barkyoumb'}
-    ],
-    managers: [
-       {'first_name' : 'Lillian', 'last_name' : 'Chambers'},
-       {'first_name' : 'Gordon', 'last_name' : 'Poe'}
-    ]
- };
+    arr_dic(students);
+    let users = {
+        employees: [{
+                'first_name': 'Miguel',
+                'last_name': 'Jones'
+            },
+            {
+                'first_name': 'Ernie',
+                'last_name': 'Bertson'
+            },
+            {
+                'first_name': 'Nora',
+                'last_name': 'Lu'
+            },
+            {
+                'first_name': 'Sally',
+                'last_name': 'Barkyoumb'
+            }
+        ],
+        managers: [{
+                'first_name': 'Lillian',
+                'last_name': 'Chambers'
+            },
+            {
+                'first_name': 'Gordon',
+                'last_name': 'Poe'
+            }
+        ]
+    };
 
-function staff(dic){
-    for(staff in users){
-    
-        console.log(staff.toUpperCase());
-        for(var i=0; i<users[staff].length;i++){
-            var count =  users[staff][i].first_name.length + users[staff][i].last_name.length;
-            console.log((i+1) + " - "  + users[staff][i].first_name.toUpperCase() + " " + users[staff][i].last_name.toUpperCase() + "- "
-            + count);
+    function staff(dic) {
+        for (staff in users) {
+
+            console.log(staff.toUpperCase());
+            for (var i = 0; i < users[staff].length; i++) {
+                // console.log(users[staff])
+                var count = users[staff][i].first_name.length + users[staff][i].last_name.length;
+                console.log((i + 1) + " - " + users[staff][i].first_name.toUpperCase() + " " + users[staff][i].last_name
+                    .toUpperCase() + "- " +
+                    count);
+            }
+
+
         }
 
-    
     }
-
-}
-staff(users);
+    staff(users);
 </script>
+
 <body>
-    
-    
+
+
 </body>
+
 </html>
