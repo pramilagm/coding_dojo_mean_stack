@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <title>Sockets</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <script>
+        $(document).ready(function () {
+            var socket = io();
+            $('#form').submit(function (e) {
+                e.preventDefault();
+                socket.emit('form-posting', {
+                    name: $('#name').val(),
+                    location: $('#location').val(),
+                    language: $('#language').val(),
+                    comment: $('#comment').val()
+                }); //6
+                //display the emit response of the server called "updated_message" and "random_number"
+                socket.on('update-message', function (data) {
+                    $('#message').html(
+                        `You emitted the following Information to the server ${JSON.stringify(data.response)}`
+
+                    )
+                    console.log(data.response)
+                    socket.on('random-number', function (data) {
+                        $('#random').html(
+                            `Your lucky number emitted by the server is ${data.response} `
+                        )
+                    })
+                });
+
+            })
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container text-center card card-body">
+        <div class="text-danger text-monospace" id="message"></div>
+        <div class="text-danger text-monospace" id="random"></div>
+    </div>
+    <div class="card container my-auto">
+        <div class=" card-body bg-danger p-5 rounded form-group">
+            <form id="form" method="post">
+                <label class="form-text h2">Name :</label>
+                <input type="text" class=" w-25 p-3 form-control" name="name" aria-describedby="emailHelp" id="name">
+
+                <label class="form-text h2">Location:</label>
+                <select class="form-control mb-4 form-control-lg" name="location" id="location">
+                    <option value="Oakland">Oakland</option>
+                    <option value="San Jose">San Jose</option>
+                    <option value="Seattle">Seattle</option>
+                </select>
+
+                <label class="form-text h2">Lanugage:</label>
+                <select class="form-control form-control-lg mb-4" name="language" id="language">
+                    <option value="Python">Python</option>
+                    <option value="Java">Java</option>
+                    <option value="Javascript">Javascript</option>
+                </select>
+
+
+                <label for="comment" class=" h2 form-text secondary mb-4">Comments</label>
+                <!-- <input type="text" name="comment" class="w-25 p-3 mb-4 form-control"> -->
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" id="comment"></textarea>
+                <br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        </form>
+    </div>
+       
+</body>
+
+</html>
