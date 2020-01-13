@@ -8,15 +8,15 @@ const io = require("socket.io")(server);
 app.use(express.urlencoded({
     extended: true
 }));
-const session = require('express-session');
-app.use(session({
-    secret: 'keyboardkitteh',
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-        maxAge: 60000
-    }
-}))
+// const session = require('express-session');
+// app.use(session({
+//     secret: 'keyboardkitteh',
+//     resave: false,
+//     saveUninitialized: true,
+//     cookie: {
+//         maxAge: 60000
+//     }
+// }))
 var counter = 1;
 
 

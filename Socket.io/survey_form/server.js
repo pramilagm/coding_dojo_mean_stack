@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.render("index");
 });
-// Listen to connection event from the client side
+// create server's connection listener to run, and this occurs for every new socket connection
 io.on("connection", function(socket) {
   //2
   var random_number = Math.floor(Math.random() * 1000 + 1);

@@ -24,7 +24,6 @@
                 socket.on('update-message', function (data) {
                     $('#message').html(
                         `You emitted the following Information to the server ${JSON.stringify(data.response)}`
-
                     )
                     console.log(data.response)
                     socket.on('random-number', function (data) {
