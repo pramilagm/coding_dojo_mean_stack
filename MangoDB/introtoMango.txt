@@ -1,0 +1,49 @@
+1.Create a database called 'my_first_db'.
+ >>  use my_first_db
+2.Create students collection.
+>> db.createCollection('students')
+3.Each document you insert into this collection should have the following format: ({name: STRING, home_state: STRING, lucky_number: NUMBER, birthday: {month: NUMBER, day: NUMBER, year: NUMBER}})
+>>db.students.insert({name: STRING, home_state: STRING, lucky_number: NUMBER, birthday: {month: NUMBER, day: NUMBER, year: NUMBER}})
+4.Create 5 students with the appropriate info.
+>>db.students.insert({name: STRING, home_state: STRING, lucky_number: NUMBER, birthday: {month: NUMBER, day: NUMBER, year: NUMBER}})
+5.Get all students.
+>>db.students.find().pretty()
+6.Retrieve all students who are from California (San Jose Dojo) or Washington (Seattle Dojo)
+>>db.students.find({home:"san Jose "}).pretty()
+>>db.students.find({home:"seatle Dojo"}).pretty()
+7.Get all students whose lucky number is:
+
+7.1. greater than 3
+>>db.students.find({lucky_num:{$gt:3}}).pretty()
+..
+less than or equal to 10
+>>db.students.find({lucky_num:{$lte:10}}).pretty()
+between 1 and 9 (inclusive)
+>>db.students.find({lucky_num:{$gte:10}}).pretty()
+
+8.Add a field to each student collection called 'interests' that is an ARRAY.  It should contain the following entries: 'coding', 'brunch', 'MongoDB'. Do this in ONE operation
+>> db.students.updateMany({},{$set: {interests:["coding","brunch","MangoDb"]}})
+9.Add some unique interests for each particular student into each of their interest arrays
+>>db.students.update({_id: ObjectId("5463d871a6a96d5ed6252f4d")}, {$push: {interests: 'snowboarding'}})
+10.Add the interest 'taxes' into someone's interest array.
+>>db.students.update({_id: ObjectId("5463d871a6a96d5ed6252f4d")}, {$push: {interests: 'taxes'}})
+11.Remove the 'taxes' interest you just added
+ >>db.students.update({name:"Pramila"}, {$pull: {interests: "taxes"}})
+12.Remove all students who are from California.
+>> db.students.remove({location: "california"}, false)
+13.move a student by name
+>>db.students.remove({name: "kalaph"})
+14.Remove a student whose lucky number is greater than 5 
+>>db.students.find({lucky_num: {$gt: 5}})
+15.Add a field to each student collection called 'number_of_belts' and set it to 0.
+>>db.students.updateMany({},{$set:{number_of_belts:0}})
+16.Increment this field by 1 for all students in Washington (Seattle Dojo).
+>>db.students.update({location:"washington"},{$inc:{number_of_belts:1}})
+17.Rename the 'number_of_belts' field to 'belts_earned'
+
+>>db.students.updateMany( {}, { $rename: { 'number_of_belts': 'belts_earned'} } );
+18.Remove the 'lucky_number' field.
+>>>db.students.updateMany({ },{ $unset: {"lucky_num": ""}});
+19.Add a 'updated_on' field, and set the value as the current date
+>>db.students.update({}, {$set: {"updated_on": 01/13/2020}})
+
