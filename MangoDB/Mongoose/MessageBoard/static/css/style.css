@@ -1,0 +1,15 @@
+.container {
+    min-height: 600px;
+    width: 1000px;
+    border: 1px solid #cccccc;
+    margin-bottom: 10px;
+    padding: 1rem;
+    overflow-y: scroll;
+    margin-top: 55px;
+    border-radius: 14px;
+
+}
+
+.form {
+    padding-left: 15px;
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Mongose Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class="font-weight-bold text-center">Dojo Message Board</h1>
+        <hr>
+
+
+        <form action="/messages" method="POST" class="form">
+            <% if(messages.registration) { %>
+            <% for (var x of messages.registration) { %>
+            <h3><%= x %></h3>
+            <% } %>
+            <% } %>
+            <div class="row ">
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" class="form-control" name="user_name">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Message</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Push a Message</button>
+
+        </form>
+        <div class="msgInfo">
+
+            <% for (var msg of messages) { %>
+            <h2 class="font-weight-bold text-success">Name :
+                <%= msg.user_name %>
+
+            </h2>
+            <p class="font-weight-bold text-success">Message:
+                <%= msg.message %>
+
+            </p>
+            <hr>
+            <% for (var cmt of messages.comments) { %>
+            <h2 class="font-weight-bold text-success">Name :
+                <%= cmt.user_name %>
+
+            </h2>
+            <p class="font-weight-bold text-success">comment:
+                <%= cmt.comment %>
+
+            </p>
+            <hr>
+            <% } %>
+
+
+
+
+
+
+            <% if(messages.length>1) { %>
+            <form action="/comments/<%=messages.id%>" method="POST" class="form">
+                <% if(messages.registration) { %>
+                <% for (var x of messages.registration) { %>
+                <h3><%= x %></h3>
+                <% } %>
+                <% } %>
+                <div class="row ">
+                    <div class="form-group">
+                        <label>Your Name</label>
+                        <input type="text" class="form-control" name="user_name">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Leave a comment</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comment"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Leave a comment</button>
+
+            </form>
+            <% } %>
+            <% } %>
+
+
+        </div>
+
+
+
+
+
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Mongose Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="container text-center">
+        <h1 class="font-weight-bold">Welcome to Mongoose Dashboard</h1>
+        <h2 class="text-center font-weight-bold">Here are a list of Mongooses</h2>
+        <ul class="text-center">
+            <% for (var mongoose of mongooses) { %>
+            <h2 class="font-weight-bold"><a href="/mongooses/show/<%= mongoose.id %>">
+                    <li class="quote text-success text-center  "><%= mongoose.name %></li>
+                </a>
+            </h2>
+            <hr>
+            <% } %>
+        </ul>
+
+        <a href="/mongooses/new" class="btn btn-primary">Create a new Mongoose</a>
+        <!-- <form action="/quotes" method="POST">
+                    <% if(messages.registration) { %>
+                    <% for (var x of messages.registration) { %>
+                    <h3><%= x %></h3>
+                    <% } %>
+                    <% } %>
+                    <div class="row ">
+                        <div class="form-group">
+                            <label>Your Name</label>
+                            <input type="text" class="form-control" name="name">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label>Your QUotes</label>
+                            <input type="text" class="form-control" name="quote">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                    </form> -->
+
+
+    </div>
+</body>
+
+</html>
