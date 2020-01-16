@@ -1,25 +1,65 @@
 <html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
  <script>
     $(document).ready(function () {
         $('#peopleBtn').click(function (e) {
             e.preventDefault();
             // let's make the request to our OWN server!
             $.get('/people', function (data) {
-                $('.name').append(`${data.count}`)
-                console.log("got the data", data);
+                var result = "";
+
+                for (var res of data.results) {
+                    result += "<p>"
+                    result += res.name;
+                    result += "</br>"
+                }
+
+                $('.name').append(`${result}`)
+                // console.log("got the data", data);
+            }, 'json');
+        });
+
+        $('#planetBtn').click(function (e) {
+            e.preventDefault();
+            // let's make the request to our OWN server!
+            $.get('/planet', function (data) {
+                var result = "";
+
+                for (var res of data.results) {
+                    result += "<p>"
+                    result += res.name;
+                    result += "</br>"
+                }
+
+                $('.planets').append(`${result}`)
+                // console.log("got the data", data);
             }, 'json');
         });
     });
 </script>
 
 <body>
-    <h1>Hello, is it me you were looking for?</h1>
+    <div class="container">
+        <h2 class="card card-body bg-gradient-info bg-success text-center">Star Wars wiki</h2>
+        <h4 class="text-center font-weight-light">Do you like to know more about??</h4>
+        <form class="text-center">   
+            <button class="btn btn-success" id="peopleBtn">People</button>
+            <button class="btn btn-success" id="planetBtn">Planet</button>
+        </form>
+        <div class="name text-center text-monospace mt-2"></div>
+        <div class="planets text-center text-monospace mt-2"></div>
+        <div class="row mt-2">
+            <div class="col d-flex justify-content-around">
+                <button id="prev" class='btn btn-warning' hidden>Previous 10</button>
+                <button id="all" class='btn btn-warning' hidden>Get all</button>
+                <button id="next" class='btn btn-warning' hidden>Next 10</button>
+            </div>
+        </div>
 
-    <form>   
-        <button id="peopleBtn">People</button>
-    </form>
-    <div class="name"></div>
+    </div>
 </body>
 
 </html>

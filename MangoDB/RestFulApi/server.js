@@ -9,24 +9,24 @@ app.use(express.static(__dirname + "/client/static"));
 app.set("views", __dirname + "/client/views");
 app.set("view engine", "ejs");
 app.use(
-  express.urlencoded({
-    extended: true
-  })
+    express.urlencoded({
+        extended: true
+    })
 );
 app.use(
-  session({
-    secret: "keyboardkitteh",
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-      maxAge: 60000
-    }
-  })
+    session({
+        secret: "keyboardkitteh",
+        resave: false,
+        saveUninitialized: true,
+        cookie: {
+            maxAge: 60000
+        }
+    })
 );
-mongoose.connect("mongodb://localhost/persons_db", {
-  useNewUrlParser: true
+mongoose.connect("mongodb://localhost/tasks_db", {
+    useNewUrlParser: true
 });
-require("./server/config/mongoose.js")
+require("./server/config/mongoose.js");
 require("./server/config/routes.js")(app);
 // create an object that contains methods for mongoose to interface with MongoDB
 

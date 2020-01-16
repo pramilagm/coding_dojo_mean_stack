@@ -8,26 +8,22 @@ app.use(flash());
 app.use(express.static(__dirname + "/client/static"));
 app.set("views", __dirname + "/client/views");
 app.set("view engine", "ejs");
+app.use(express.json());
 app.use(
-  express.urlencoded({
-    extended: true
-  })
+    session({
+        secret: "keyboardkitteh",
+        resave: false,
+        saveUninitialized: true,
+        cookie: {
+            maxAge: 60000
+        }
+    })
 );
-app.use(
-  session({
-    secret: "keyboardkitteh",
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-      maxAge: 60000
-    }
-  })
-);
-mongoose.connect("mongodb://localhost/persons_db", {
-  useNewUrlParser: true
+mongoose.connect("mongodb://localhost/quote_db", {
+    useNewUrlParser: true
 });
 require("./server/config/mongoose.js")
 require("./server/config/routes.js")(app);
 // create an object that contains methods for mongoose to interface with MongoDB
 
-app.listen(8000, () => console.log("listening on port 8000"));
+app.listen(8080, () => console.log("listening on port 8080"));
