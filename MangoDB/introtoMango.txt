@@ -19,7 +19,7 @@
 less than or equal to 10
 >>db.students.find({lucky_num:{$lte:10}}).pretty()
 between 1 and 9 (inclusive)
->>db.students.find({lucky_num:{$gte:10}}).pretty()
+>>db.students.find({lucky_num:{$gte:1, $lt:10}}).pretty()
 
 8.Add a field to each student collection called 'interests' that is an ARRAY.  It should contain the following entries: 'coding', 'brunch', 'MongoDB'. Do this in ONE operation
 >> db.students.updateMany({},{$set: {interests:["coding","brunch","MangoDb"]}})

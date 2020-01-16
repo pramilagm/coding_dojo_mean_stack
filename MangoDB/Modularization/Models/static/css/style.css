@@ -1,0 +1,7 @@
+.contain {
+    max-width: 1000px;
+    margin-top: 20px;
+    min-height: 500px;
+    border: 8px solid blue;
+    border-radius: 15px;
+}
