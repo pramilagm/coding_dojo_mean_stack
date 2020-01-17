@@ -28,4 +28,4 @@ require("./server/config/mongoose.js");
 require("./server/config/routes.js")(app);
 // create an object that contains methods for mongoose to interface with MongoDB
 
-app.listen(9000, () => console.log("listening on port 8000"));
+app.listen(9000, () => console.log("listening on port 9000"));
