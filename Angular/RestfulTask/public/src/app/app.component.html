@@ -1,1 +1,7 @@
-<h2>Welcome to {{title}} </h2>
+<div class="container">
+  <h2>Restful Task API </h2>
+  <h1>All the Task</h1>
+  <p *ngFor="let task of tasks">{{ task.title }} - {{ task.des}} kk</p>
+  <h1>Another task</h1>
+  <p>{{oneTask}}</p>
+</div>

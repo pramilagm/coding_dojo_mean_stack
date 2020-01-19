@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const flash = require("express-flash");
 const session = require("express-session");
-
+const bodyParser = require('body-parser');
 app.use(flash());
 app.use(express.static(__dirname + '/public/dist/public'));
 app.use(
