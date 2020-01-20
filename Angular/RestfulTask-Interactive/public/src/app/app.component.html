@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>Restful Task API </h2>
+  <!-- <button (click)="getTasksFromService()">Click to see all the task</button> -->
+  <ol>
+    <button class="btn btn-warning mt-5 mb-5" (click)="allTasks()">ALL TASKS!</button>
+    <li *ngFor="let task of tasks">{{ task.title }} <button class="btn btn-danger"
+        (click)="showTask(task)">SHOW</button></li>
+    <h4 *ngIf="oneTask">
+      <div class='description mt-5'>
+        <p>{{oneTask.title}} - {{oneTask.description}}</p>
+      </div>
+    </h4>
+  </ol>
+</div>
