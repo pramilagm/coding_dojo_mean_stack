@@ -1,0 +1,18 @@
+<div class="container">
+  <h2>Restful Task API </h2>
+
+
+  <!-- <button (click)="getTasksFromService()">Click to see all the task</button> -->
+  <ul>
+    <button class=" button mt-5 mb-5" (click)="allTasks()"> GET ALL TASKS!</button>
+    <div class="display ">
+      <li *ngFor="let task of tasks">{{ task.title }} <button class="btn btn-success  ml-2 mb-2  rounded-circle "
+          (click)="viewOneTask(task)">SHOW</button>
+      </li>
+    </div>
+    <div class="container">
+      <app-task *ngIf="showTask" [taskToshow]="showTask"></app-task>
+    </div>
+  </ul>
+
+</div>

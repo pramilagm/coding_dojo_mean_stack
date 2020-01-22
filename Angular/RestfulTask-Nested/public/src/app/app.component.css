@@ -1,0 +1,32 @@
+.container {
+  margin-top: 40px;
+  border: 1px solid rgb(187, 37, 37);
+  border-width: thick;
+  border-radius: 15px;
+  text-align: center;
+
+}
+
+ul li {
+  list-style-type: none;
+}
+
+button {
+  height: 100px;
+  width: 100px;
+  text-align: center;
+}
+
+.button {
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 16px;
+  padding: 20px;
+  width: 180px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
