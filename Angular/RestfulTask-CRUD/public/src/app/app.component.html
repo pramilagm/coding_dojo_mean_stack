@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>Restful Task API </h2>
+
+  <form (submit)="addnewTask()" class="task-box clearfix">
+    <!-- use the json pipe to see how newTask changes in real time
+    <p> {{ newTask | json }} </p> -->
+    <h4> Title <span></span><input type="text" class="col-4" name="newTask.title" [(ngModel)]="newTask.title" /></h4>
+    <h4>Description<input type="text" class="col-4" name="newTask.des" [(ngModel)]="newTask.des" /></h4>
+    <input type="submit" value="Create Task" />
+  </form>
+  <!-- <button (click)="getTasksFromService()">Click to see all the task</button> -->
+  <ul>
+    <button class="btn btn-warning mt-5 mb-5" (click)="allTasks()">ALL TASKS!</button>
+    <li *ngFor="let task of tasks">{{ task.title }} <button class="btn btn-success"
+        (click)="viewOneTask(task)">SHOW</button> <button class="btn btn-danger"
+        (click)="destroyTask(task)">Delete</button>
+      <button class="btn btn-primary" (click)="editForm(task)">Edit Task</button>
+
+
+    </li>
+    <h4 *ngIf="showTask">
+      <div class='description mt-5'>
+        <p>{{showTask.title}}</p>
+        <p>{{showTask.des}}</p>
+
+      </div>
+    </h4>
+    <form (submit)="updateOneTask(editTask)" class="task-box clearfix" *ngIf="editing">
+      <!-- use the json pipe to see how newTask changes in real time
+      <p> {{ newTask | json }} </p> -->
+      <h4> Title <span></span><input type="text" class="col-4" name="newTask.title" [(ngModel)]="editTask.title" />
+      </h4>
+      <h4>Description<input type="text" class="col-4" name="newTask.des" [(ngModel)]="editTask.des" /></h4>
+      <input type="submit" value="Create Task" />
+    </form>
+  </ul>
+
+</div>

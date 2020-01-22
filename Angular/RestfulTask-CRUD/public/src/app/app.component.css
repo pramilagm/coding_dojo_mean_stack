@@ -1,0 +1,12 @@
+.container {
+  margin-top: 40px;
+  border: 1px solid rgb(187, 37, 37);
+  border-width: thick;
+  border-radius: 15px;
+  text-align: center;
+
+}
+
+ul li {
+  list-style-type: none;
+}
