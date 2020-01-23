@@ -1,0 +1,17 @@
+<div class="container text-left mb-30">
+
+  <img
+    src="https://images.pexels.com/photos/616852/pexels-photo-616852.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    alt="">
+
+  <li *ngIf='weather' class="font-weight-bolder">
+    <h1 class="text-center">{{weather.name}}</h1>
+    <p>humidity:{{weather.main.humidity}}</p>
+    <p>Temperatur(Average) : {{weather.main.temp}}</p>
+    <p>Temperatur(High) : {{weather.main.temp_max}}</p>
+    <p>Temperatur(Low) : {{weather.main.temp_min}}</p>
+    <p>Status:{{weather.weather[0].description}}</p>
+
+  </li>
+
+</div>

@@ -1,0 +1,34 @@
+<div class="container-fluid main">
+  <div class="container text-center">
+    <h1>Dojo Weather ForeCast</h1>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+      <div class="text-center">
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+          <ul class="navbar-nav text-center navbar-brand">
+            <li class="nav-item active">
+              <a class="nav-link" [routerLink]="['/chicago']">Chicago<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/sanjose']">San Jose ,CA</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/burbank']">Burbank CA</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/dallas']">Dallas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/dc']">Washington DC</a> </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <router-outlet>
+    </router-outlet>
+  </div>
+
+
+</div>

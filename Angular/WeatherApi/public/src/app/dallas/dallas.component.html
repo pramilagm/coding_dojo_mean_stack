@@ -1,0 +1,15 @@
+<div class="container text-left mb-30">
+
+  <img src="https://as1.ftcdn.net/jpg/01/77/99/10/500_F_177991091_UFYQ3Tq0cdNnzG9138VqTAGPLgeto3N8.jpg" alt="">
+
+  <li *ngIf='weather' class="font-weight-bolder">
+    <h1 class="text-center">{{weather.name}}</h1>
+    <p>humidity:{{weather.main.humidity}}</p>
+    <p>Temperatur(Average) : {{weather.main.temp}}</p>
+    <p>Temperatur(High) : {{weather.main.temp_max}}</p>
+    <p>Temperatur(Low) : {{weather.main.temp_min}}</p>
+    <p>Status:{{weather.weather[0].description}}</p>
+
+  </li>
+
+</div>
