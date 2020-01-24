@@ -4,9 +4,9 @@ module.exports = function (app) {
 
   app.post("/new", authors.add_author);
 
-  app.delete("/remove/:author", authors.remove_author);
+  app.delete("/remove/:_id", authors.remove_author);
 
-  //   app.get("/author/:_id", authors.show_author);
+  app.get("/author/:_id", authors.show_author);
 
   app.put("/edit/:_id", authors.update_author);
 };

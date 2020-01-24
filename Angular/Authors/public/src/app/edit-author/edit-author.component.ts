@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpService } from "../http.service";
-import { Router, ActivatedRoute } from "@angular/router";
+import { Router, ActivatedRoute, ParamMap } from "@angular/router";
+import { switchMap } from "rxjs/operators";
 
 @Component({
   selector: "app-edit-author",
@@ -17,7 +18,17 @@ export class EditAuthorComponent implements OnInit {
     private _router: Router
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this._route.paramMap
+      .pipe(
+        switchMap((params: ParamMap) =>
+          this._httpService.getAuthor(params.get("id"))
+        )
+      )
+      .subscribe(author => {
+        this.edited = author;
+      });
+  }
 
   editAuthor(_id) {
     let observable = this._httpService.updateAuthor(_id, this.edited);

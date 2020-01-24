@@ -17,16 +17,16 @@ module.exports = {
       .catch(err => res.json(err));
   },
   remove_author: function (req, res) {
-    console.log(req.params.author)
+    console.log(req.params._id)
     Author.remove({
-        author: req.params.author
+        _id: req.params._id
       })
       .then(authors => res.json(authors))
       .catch(err => res.json(err));
   },
   show_author: function (req, res) {
     Author.findOne({
-        author: req.params._id
+        _id: req.params._id
       })
       .then(authors => res.json(authors))
       .catch(err => res.json(err));

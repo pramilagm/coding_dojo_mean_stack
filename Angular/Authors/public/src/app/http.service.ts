@@ -9,6 +9,9 @@ export class HttpService {
   getAuthors() {
     return this._http.get("/authors");
   }
+  getAuthor(_id) {
+    return this._http.get("/author/" + _id);
+  }
   addAuthor(author) {
     return this._http.post("/new", author);
   }
