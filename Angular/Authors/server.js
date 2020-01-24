@@ -1,8 +1,10 @@
 const express = require("express");
 const app = express();
+const path = require('path');
 const mongoose = require("mongoose");
 const flash = require("express-flash");
 const bodyParser = require('body-parser');
+app.use(express.json());
 app.use(flash());
 app.use(express.static(__dirname + '/public/dist/public'));
 app.use(

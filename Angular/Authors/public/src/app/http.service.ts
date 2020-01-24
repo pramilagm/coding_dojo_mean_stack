@@ -10,10 +10,10 @@ export class HttpService {
     return this._http.get("/authors");
   }
   addAuthor(author) {
-    return this._http.post("/author", author);
+    return this._http.post("/new", author);
   }
-  updateAuthor(_id, author) {
-    return this._http.put("/update/" + _id, author);
+  updateAuthor(id, author) {
+    return this._http.put("/edit/" + id, author);
   }
   removeAuthor(id) {
     return this._http.delete("/remove/" + id);

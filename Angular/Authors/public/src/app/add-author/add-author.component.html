@@ -1,1 +1,21 @@
-<p>add-author works!</p>
+<div class="container col-7">
+
+  <button class="btn btn-primary mb-3 text-light" [routerLink]="['/']">HOME</button>
+
+  <div class="jumbotron jumbotron-fluid p-5">
+    <h2 class="display-6 text-center text-info">Add a New Author</h2>
+    <form (submit)=" addNewAuthor()">
+      <div class="form-group">
+        <label for="exampleFormControlFile1">Author Name</label>
+        <input type="text" class="form-control" name="name" [(ngModel)]="newAuthor.name">
+      </div>
+      <button type="button" class="btn btn-danger" [routerLink]="['/']">Cancel</button>
+      <button type="submit" class="btn btn-info ml-3">Submit</button>
+
+    </form>
+
+  </div>
+  <div id="errors">
+    <h3 id="error">{{error}}</h3>
+  </div>
+</div>
