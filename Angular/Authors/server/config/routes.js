@@ -1,12 +1,12 @@
-const authors = require("../controllers/authors");
+const routers = require("../controllers/hellos");
 module.exports = function (app) {
-  app.get("/authors", authors.index);
+  app.get("/authors", helloController.index);
 
-  app.post("/new", authors.add_author);
+  app.post("/new", helloController.add_author);
 
-  app.delete("/remove/:_id", authors.remove_author);
+  app.delete("/remove/:_id", helloController.remove_author);
 
-  app.get("/author/:_id", authors.show_author);
+  app.get("/author/:_id", helloController.show_author);
 
-  app.put("/edit/:_id", authors.update_author);
+  app.put("/edit/:_id", helloController.update_author);
 };

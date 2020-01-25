@@ -9,21 +9,19 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 export class AddAuthorComponent implements OnInit {
   newAuthor = { name: "" };
-  error: any;
+  errors: any = {};
   constructor(
     private _httpService: HttpService,
     private _route: ActivatedRoute,
     private _router: Router
   ) {}
 
-  ngOnInit() {
-    this.error = "";
-  }
+  ngOnInit() {}
   addNewAuthor() {
     let observable = this._httpService.addAuthor(this.newAuthor);
-    observable.subscribe(data => {
-      if (data.error) {
-        this.error = data.error.errors.name.message;
+    observable.subscribe((data: any) => {
+      if (data.errors) {
+        this.errors = data.errors;
       } else {
         console.log("author added ", data);
         this.goToHome();

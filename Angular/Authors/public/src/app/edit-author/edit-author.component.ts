@@ -11,6 +11,7 @@ import { switchMap } from "rxjs/operators";
 export class EditAuthorComponent implements OnInit {
   edited: any = { name: "" };
   editing: boolean;
+  errors: any = {};
 
   constructor(
     private _httpService: HttpService,
@@ -32,9 +33,13 @@ export class EditAuthorComponent implements OnInit {
 
   editAuthor(_id) {
     let observable = this._httpService.updateAuthor(_id, this.edited);
-    observable.subscribe(data => {
-      console.log("data edited ", data);
-      this.goHome();
+    observable.subscribe((data: any) => {
+      if (!data.errors) {
+        console.log("data edited ", data);
+        this.goHome();
+      } else {
+        this.errors = data.errors;
+      }
     });
   }
   goHome() {

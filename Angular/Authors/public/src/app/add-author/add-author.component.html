@@ -6,6 +6,7 @@
     <h2 class="display-6 text-center text-info">Add a New Author</h2>
     <form (submit)=" addNewAuthor()">
       <div class="form-group">
+        <div *ngIf="errors.name" class="text-danger display-6">{{errors.name.message}}</div>
         <label for="exampleFormControlFile1">Author Name</label>
         <input type="text" class="form-control" name="name" [(ngModel)]="newAuthor.name">
       </div>
