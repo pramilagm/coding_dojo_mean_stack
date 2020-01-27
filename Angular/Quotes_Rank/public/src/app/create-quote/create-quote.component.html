@@ -1,0 +1,18 @@
+<div class="container col-7">
+
+  <button class="btn btn-primary mb-3 text-light" [routerLink]="['/']">HOME</button>
+
+  <div class="jumbotron jumbotron-fluid p-5">
+    <h2 class="display-6 text-center text-info">Create a new quote</h2>
+    <form (submit)="  createNewQuote( author._id )">
+      <div class="form-group">
+
+        <label for="exampleFormControlFile1">Quote</label>
+        <input type="text" class="form-control" name="newQuote.quote_name" [(ngModel)]="newQuote.quote_name">
+      </div>
+      <button type="button" class="btn btn-danger" [routerLink]="['/']">Cancel</button>
+      <button type="submit" class="btn btn-info ml-3">Submit</button>
+    </form>
+
+  </div>
+</div>

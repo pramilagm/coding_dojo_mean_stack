@@ -1,0 +1,25 @@
+<div class="container col-7  display-6" *ngIf="showAuthor">
+  <a [routerLink]="['/']">Home</a> <a class="ml-10" [routerLink]="['/write/'+showAuthor._id]">Add a Quote</a>
+  <div class="jumbotron jumbotron-fluid ">
+    <h4>Quote BY {{showAuthor.name}}</h4>
+    <table class="table">
+      <thead>
+        <tr class="table-danger">
+          <th scope="col">Quotes</th>
+          <th scope="col">Vote</th>
+          <th scope="col">Actions Available</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-warning" *ngFor="let quote of showAuthor.quotes">
+          <td scope="row">{{quote.quote_name}}</td>
+          <td></td>
+          <td><button type="button" class=" table-info p-2" (click)="Vote(1,quote.id)">Vote Up</button><button
+              type="button" class=" table-info p-2 ml-2" (click)="Vote(-1,quote.id)">Vote
+              Down</button><button type="button" class=" table-dark p-2 ml-2">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
