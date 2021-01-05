@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.1",
+    "axios": "^0.21.1",
     "ejs": "^3.0.1",
     "express-session": "^1.17.0"
   }
